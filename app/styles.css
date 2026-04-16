@@ -72,6 +72,13 @@ input[type=checkbox]:checked { accent-color: #b7102a; }
 }
 .pay-card.selected { border-color: #b7102a; }
 
+/* ─── Colores de categoría (usados dinámicamente en JS) ── */
+.cat-HAMBURGUESAS  { background: linear-gradient(135deg, #fee2e2, #fed7aa); }
+.cat-LOMITOS       { background: linear-gradient(135deg, #fef3c7, #fef9c3); }
+.cat-PIZZAS        { background: linear-gradient(135deg, #fed7aa, #fff1f2); }
+.cat-EXTRAS        { background: linear-gradient(135deg, #fef9c3, #ecfccb); }
+.cat-CHAMBURREADOS { background: linear-gradient(135deg, #f0fdfa, #d1fae5); }
+
 /* ─── Botones de cantidad ──────────────────────── */
 .qty-btn {
   width: 2.5rem;

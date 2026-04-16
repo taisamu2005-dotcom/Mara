@@ -39,13 +39,13 @@ const MENU = [
   { id:28, cat:'CHAMBURREADOS', name:'Cheddar',                  price:15000, emoji:'🥪', ingredients:[] },
 ];
 
-// Colores de fondo por categoría (clases Tailwind)
+// Clases CSS de color por categoría (definidas en styles.css)
 const CATEGORY_COLORS = {
-  HAMBURGUESAS:  'from-red-100 to-orange-100',
-  LOMITOS:       'from-amber-100 to-yellow-100',
-  PIZZAS:        'from-orange-100 to-red-50',
-  EXTRAS:        'from-yellow-100 to-lime-100',
-  CHAMBURREADOS: 'from-teal-50 to-emerald-100',
+  HAMBURGUESAS:  'cat-HAMBURGUESAS',
+  LOMITOS:       'cat-LOMITOS',
+  PIZZAS:        'cat-PIZZAS',
+  EXTRAS:        'cat-EXTRAS',
+  CHAMBURREADOS: 'cat-CHAMBURREADOS',
 };
 
 const WHATSAPP_NUMBER = '595971954958';
@@ -99,7 +99,7 @@ function renderProductGrid(cat) {
   const products = MENU.filter(p => p.cat === cat);
   grid.innerHTML = products.map(p => `
     <div class="group bg-surface-container-lowest rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-      <div class="w-full h-36 rounded-xl bg-gradient-to-br ${CATEGORY_COLORS[p.cat]} flex items-center justify-center text-7xl mb-4 group-hover:scale-105 transition-transform duration-300">
+      <div class="w-full h-36 rounded-xl ${CATEGORY_COLORS[p.cat]} flex items-center justify-center text-7xl mb-4 group-hover:scale-105 transition-transform duration-300">
         ${p.emoji}
       </div>
       <div class="flex-1 flex flex-col">
@@ -142,7 +142,7 @@ function openModal(productId) {
 
   // Área de ícono con color de categoría
   const iconArea = document.getElementById('modal-icon-area');
-  iconArea.className  = `w-full h-28 rounded-xl flex items-center justify-center text-6xl mb-5 bg-gradient-to-br ${CATEGORY_COLORS[p.cat]}`;
+  iconArea.className  = `w-full h-28 rounded-xl flex items-center justify-center text-6xl mb-5 ${CATEGORY_COLORS[p.cat]}`;
   iconArea.textContent = p.emoji;
 
   // Ingredientes con checkboxes
@@ -294,7 +294,7 @@ function renderCart() {
     const subtotal = item.price * item.qty;
     return `
       <div class="bg-surface-container-low rounded-xl p-4 flex items-center gap-4 group hover:bg-surface-container transition-colors">
-        <div class="w-16 h-16 rounded-xl bg-gradient-to-br ${CATEGORY_COLORS[item.cat]} flex items-center justify-center text-4xl flex-shrink-0">
+        <div class="w-16 h-16 rounded-xl ${CATEGORY_COLORS[item.cat]} flex items-center justify-center text-4xl flex-shrink-0">
           ${item.emoji}
         </div>
         <div class="flex-1 min-w-0">
