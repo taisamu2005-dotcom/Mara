@@ -165,8 +165,7 @@ function openModal(productId) {
   // Mostrar overlay
   const overlay = document.getElementById('modal-overlay');
   const panel   = document.getElementById('modal-panel');
-  overlay.classList.remove('pointer-events-none', 'opacity-0');
-  overlay.classList.add('opacity-100');
+  overlay.classList.add('overlay-open');
   panel.classList.add('modal-open');
   document.body.style.overflow = 'hidden';
 }
@@ -174,10 +173,9 @@ function openModal(productId) {
 function closeModal() {
   const overlay = document.getElementById('modal-overlay');
   const panel   = document.getElementById('modal-panel');
-  overlay.classList.add('opacity-0');
+  overlay.classList.remove('overlay-open');
   panel.classList.remove('modal-open');
   setTimeout(() => {
-    overlay.classList.add('pointer-events-none');
     document.body.style.overflow = '';
   }, 300);
 }
