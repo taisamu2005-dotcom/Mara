@@ -3,6 +3,18 @@
    (Tailwind CDN maneja las clases utilitarias)
 ═══════════════════════════════════════════════ */
 
+/* ─── Splash screen ────────────────────────────── */
+#splash {
+  transition: opacity 0.5s ease;
+}
+#splash.splash-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.splash-img {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
 /* ─── Iconos Material Symbols ─────────────────── */
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;

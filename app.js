@@ -657,3 +657,29 @@ document.getElementById('modal-overlay').addEventListener('click', function(e) {
 
 // ─── ARRANQUE ────────────────────────────────────
 init();
+
+// ─── SPLASH SCREEN ───────────────────────────────
+(function() {
+  const splash  = document.getElementById('splash');
+  const logo1   = document.getElementById('splash-logo1');
+  const logo2   = document.getElementById('splash-logo2');
+
+  // Paso 1 (0ms): logo1 visible
+  // Paso 2 (1000ms): fade logo1 → logo2
+  setTimeout(() => {
+    logo1.style.opacity = '0';
+    logo1.style.transform = 'scale(0.9)';
+    logo2.style.opacity = '1';
+    logo2.style.transform = 'scale(1)';
+  }, 1000);
+
+  // Paso 3 (2500ms): fade out todo el splash
+  setTimeout(() => {
+    splash.classList.add('splash-hide');
+  }, 2500);
+
+  // Paso 4 (3000ms): remover del DOM
+  setTimeout(() => {
+    splash.remove();
+  }, 3000);
+})();
