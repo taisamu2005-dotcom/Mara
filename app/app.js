@@ -55,6 +55,7 @@ let cart          = [];
 let currentView   = 'menu';
 let activeCategory = 'HAMBURGUESAS';
 let payMethod     = 'efectivo';
+let deliveryType  = 'delivery'; // 'delivery' | 'takeaway'
 
 // Estado del modal
 let modalProduct    = null;
@@ -359,6 +360,37 @@ function renderPayment() {
   document.getElementById('cash-input').value = '';
   document.getElementById('change-amount').textContent = 'Gs. 0';
   document.getElementById('cash-error').classList.add('hidden');
+
+  // Resetear slider de entrega
+  deliveryType = 'delivery';
+  document.getElementById('delivery-pill').classList.remove('to-takeaway');
+  document.getElementById('btn-delivery').classList.replace('text-on-surface-variant', 'text-white');
+  document.getElementById('btn-takeaway').classList.replace('text-white', 'text-on-surface-variant');
+  document.getElementById('delivery-address-section').classList.remove('hidden');
+  document.getElementById('delivery-address').value = '';
+}
+
+// ─── TIPO DE ENTREGA ─────────────────────────────
+function selectDelivery(type) {
+  deliveryType = type;
+  const pill        = document.getElementById('delivery-pill');
+  const btnDelivery = document.getElementById('btn-delivery');
+  const btnTakeaway = document.getElementById('btn-takeaway');
+  const addrSection = document.getElementById('delivery-address-section');
+
+  if (type === 'delivery') {
+    pill.classList.remove('to-takeaway');
+    btnDelivery.classList.replace('text-on-surface-variant', 'text-white');
+    btnTakeaway.classList.replace('text-white', 'text-on-surface-variant');
+    addrSection.classList.remove('hidden');
+  } else {
+    pill.classList.add('to-takeaway');
+    btnTakeaway.classList.replace('text-on-surface-variant', 'text-white');
+    btnDelivery.classList.replace('text-white', 'text-on-surface-variant');
+    addrSection.classList.add('hidden');
+  }
+  // Recalcular label del vuelto si hay monto ingresado
+  if (document.getElementById('cash-input').value) calcChange();
 }
 
 function selectPayMethod(method) {
@@ -398,6 +430,12 @@ function calcChange() {
   const changeEl      = document.getElementById('change-amount');
   const errorEl       = document.getElementById('cash-error');
   const changeDisplay = document.getElementById('change-display');
+  const changeLabel   = document.getElementById('change-label');
+
+  // Actualizar label según tipo de entrega
+  if (changeLabel) {
+    changeLabel.textContent = deliveryType === 'delivery' ? 'Vuelto sin delivery:' : 'Tu Vuelto:';
+  }
 
   if (paid > 0 && change < 0) {
     errorEl.classList.remove('hidden');
@@ -436,21 +474,48 @@ function sendWhatsApp() {
     }
   }
 
-  let lines = 'Hola, quiero hacer un pedido:\n';
+  const isDelivery = deliveryType === 'delivery';
+  const addr = isDelivery ? (document.getElementById('delivery-address').value || '').trim() : '';
+  const fmt = n => n.toLocaleString('es-PY').replace(',', '.') + ' Gs';
+
+  let lines = 'Hola, quiero hacer un pedido:\n\n';
+
+  // Productos
   cart.forEach(item => {
     const sinText = item.removed.length > 0 ? ' (sin ' + item.removed.join(', ') + ')' : '';
     const qtyText = item.qty > 1 ? item.qty + 'x ' : '';
     lines += qtyText + item.name + sinText + '\n';
   });
-  lines += '\nTotal: ' + total.toLocaleString('es-PY').replace(',', '.') + ' Gs\n';
 
+  lines += '\n💰 Total productos: ' + fmt(total) + '\n';
+
+  // Tipo de entrega
+  if (isDelivery) {
+    lines += '🛵 Entrega: Delivery\n';
+    if (addr) lines += '📍 Dirección: ' + addr + '\n';
+    lines += '⚠️ El costo del delivery se cobra aparte.\n';
+  } else {
+    lines += '🥡 Entrega: Para llevar\n';
+  }
+
+  lines += '\n';
+
+  // Método de pago
   if (payMethod === 'efectivo') {
     const change = paidAmount - total;
     lines += 'Pago: Efectivo\n';
-    lines += 'Pago con: ' + paidAmount.toLocaleString('es-PY').replace(',', '.') + ' Gs\n';
-    lines += 'Vuelto: '   + change.toLocaleString('es-PY').replace(',', '.') + ' Gs';
+    lines += 'Pago con: ' + fmt(paidAmount) + '\n';
+    if (isDelivery) {
+      lines += 'Vuelto sin delivery: ' + fmt(change) + '\n';
+      lines += '(El vuelto real depende del costo del delivery)';
+    } else {
+      lines += 'Vuelto: ' + fmt(change);
+    }
   } else {
     lines += 'Pago: Transferencia\n';
+    if (isDelivery) {
+      lines += '⚠️ El precio de los productos es ' + fmt(total) + '. El delivery se cobra aparte.\n';
+    }
     lines += '👉 Enviar comprobante aquí.';
   }
 

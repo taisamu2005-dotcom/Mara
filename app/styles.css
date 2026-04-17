@@ -85,7 +85,16 @@ input[type=checkbox]:checked { accent-color: #b7102a; }
 .cat-EXTRAS        { background: linear-gradient(135deg, #fef9c3, #ecfccb); }
 .cat-CHAMBURREADOS { background: linear-gradient(135deg, #f0fdfa, #d1fae5); }
 
-/* ─── Botones de cantidad ──────────────────────── */
+/* ─── Slider delivery/para llevar ─────────────── */
+#delivery-pill {
+  left: 0.25rem;
+  transform: translateX(0);
+}
+#delivery-pill.to-takeaway {
+  transform: translateX(calc(100% - 0.5rem));
+}
+
+
 .qty-btn {
   width: 2.5rem;
   height: 2.5rem;
