@@ -539,45 +539,45 @@ function sendWhatsApp() {
 
   let lines = 'Hola, quiero hacer un pedido:\n\n';
 
-  // Productos
+  // ── Productos (siempre muestra cantidad) ──
   cart.forEach(item => {
-    const sinText = item.removed.length > 0 ? ' (sin ' + item.removed.join(', ') + ')' : '';
+    const sinText    = item.removed.length > 0
+      ? ' (sin ' + item.removed.join(', ') + ')' : '';
     const saucesText = (item.sauces && item.sauces.length > 0)
-      ? ' [+ ' + item.sauces.map(s => s.name + ' x' + s.qty).join(', ') + ']' : '';
-    const qtyText = item.qty > 1 ? item.qty + 'x ' : '';
-    lines += qtyText + item.name + sinText + saucesText + '\n';
+      ? '\n   🥫 Salsas: ' + item.sauces.map(s => s.name + ' x' + s.qty).join(', ') : '';
+    lines += '• ' + item.qty + 'x ' + item.name + sinText + saucesText + '\n';
   });
 
   lines += '\n💰 Total productos: ' + fmt(total) + '\n';
 
-  // Tipo de entrega
+  // ── Tipo de entrega ──
   if (isDelivery) {
     lines += '🛵 Entrega: Delivery\n';
     if (addr) lines += '📍 Dirección: ' + addr + '\n';
-    lines += '⚠️ El costo del delivery se cobra aparte.\n';
+    lines += '⚠️ El delivery se cobra aparte.\n';
   } else {
     lines += '🥡 Entrega: Para llevar\n';
   }
 
   lines += '\n';
 
-  // Método de pago
+  // ── Método de pago ──
   if (payMethod === 'efectivo') {
     const change = paidAmount - total;
-    lines += 'Pago: Efectivo\n';
-    lines += 'Pago con: ' + fmt(paidAmount) + '\n';
+    lines += '💵 Pago: Efectivo\n';
+    lines += '   Pago con: ' + fmt(paidAmount) + '\n';
     if (isDelivery) {
-      lines += 'Vuelto sin delivery: ' + fmt(change) + '\n';
-      lines += '(El vuelto real depende del costo del delivery)';
+      lines += '   Vuelto sin delivery: ' + fmt(change) + '\n';
+      lines += '   ⚠️ El vuelto real depende del costo del delivery.';
     } else {
-      lines += 'Vuelto: ' + fmt(change);
+      lines += '   Vuelto: ' + fmt(change);
     }
   } else {
-    lines += 'Pago: Transferencia\n';
+    lines += '🏦 Pago: Transferencia\n';
     if (isDelivery) {
-      lines += '⚠️ El precio de los productos es ' + fmt(total) + '. El delivery se cobra aparte.\n';
+      lines += '   ⚠️ El precio de los productos es ' + fmt(total) + '. El delivery se cobra aparte.\n';
     }
-    lines += '👉 Enviar comprobante aquí.';
+    lines += '   👉 Enviar comprobante aquí.';
   }
 
   const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(lines);
