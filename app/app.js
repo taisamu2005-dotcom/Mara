@@ -24,7 +24,7 @@ const MENU = [
   // PIZZAS
   { id:16, cat:'PIZZAS', name:'Pepperoni',                       price:35000, emoji:'🍕', img:'pizza-pepperoni_web.jpg', ingredients:[] },
   { id:17, cat:'PIZZAS', name:'Jamón y queso',                   price:35000, emoji:'🍕', ingredients:[] },
-  { id:18, cat:'PIZZAS', name:'Catu pollo',                      price:35000, emoji:'🍕', ingredients:[] },
+  { id:18, cat:'PIZZAS', name:'Catu pollo',                      price:35000, emoji:'🍕', img:'catupollo.jpeg', ingredients:[] },
   { id:19, cat:'PIZZAS', name:'Catu choclo',                     price:35000, emoji:'🍕', ingredients:[] },
   // EXTRAS
   { id:20, cat:'EXTRAS', name:'Papas fritas',                    price:10000, emoji:'🍟', ingredients:[] },
