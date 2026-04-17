@@ -84,6 +84,7 @@ input[type=checkbox]:checked { accent-color: #b7102a; }
 .cat-PIZZAS        { background: linear-gradient(135deg, #fed7aa, #fff1f2); }
 .cat-EXTRAS        { background: linear-gradient(135deg, #fef9c3, #ecfccb); }
 .cat-CHAMBURREADOS { background: linear-gradient(135deg, #f0fdfa, #d1fae5); }
+.cat-SANDWICHES    { background: linear-gradient(135deg, #fce7f3, #fdf2f8); }
 
 /* ─── Slider delivery/para llevar ─────────────── */
 #delivery-pill {

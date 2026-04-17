@@ -2,50 +2,58 @@
 //  Super Hamburguesas Mara — Lógica de la app
 // ═══════════════════════════════════════════════
 
-// ─── DATOS DEL MENÚ ──────────────────────────────
+// ─── MENÚ COMPLETO ───────────────────────────────
 const MENU = [
-  // HAMBURGUESAS
-  { id:1,  cat:'HAMBURGUESAS', name:'Hamburguesa simple',        price:8000,  emoji:'🍔', img:'simple.png',               ingredients:['condimentos','tomate','carne','huevo','queso'] },
-  { id:2,  cat:'HAMBURGUESAS', name:'Hamburguesa especial',      price:9000,  emoji:'🍔', img:'especial.jpg',             ingredients:['condimentos','tomate','huevo','cebolla','queso'] },
-  { id:3,  cat:'HAMBURGUESAS', name:'Hamburguesa con cheddar',   price:10000, emoji:'🍔', img:'con cheddar.png',          ingredients:['condimentos','tomate','cebolla','queso','huevo'] },
-  { id:4,  cat:'HAMBURGUESAS', name:'Hamburguesa doble carne',   price:12000, emoji:'🍔', img:'doble.jpg',                ingredients:['condimentos','huevo','tomate','queso'] },
-  { id:5,  cat:'HAMBURGUESAS', name:'Súper hamburguesa',         price:13000, emoji:'🍔', img:'super h.jpg',              ingredients:['condimentos','tomate','cebolla','queso','huevo'] },
-  { id:6,  cat:'HAMBURGUESAS', name:'Doble carne con cheddar',   price:14000, emoji:'🍔', img:'doble.jpg',                ingredients:['condimentos','cheddar','huevo','tomate'] },
-  { id:7,  cat:'HAMBURGUESAS', name:'Súper con cheddar',         price:15000, emoji:'🍔', img:'con cheddar.png',          ingredients:['condimentos','tomate','cebolla','cheddar','huevo'] },
-  { id:8,  cat:'HAMBURGUESAS', name:'Triple carne',              price:18000, emoji:'🍔', img:'triple.jpeg',              ingredients:['condimentos','huevo','tomate','queso'] },
-  // LOMITOS
-  { id:9,  cat:'LOMITOS', name:'Lomito árabe mixto',             price:18000, emoji:'🌯', img:'lomito arabe.jpeg',        ingredients:[] },
-  { id:10, cat:'LOMITOS', name:'Lomito árabe de pollo',          price:18000, emoji:'🌯', img:'arabe de pollo.jpg',       ingredients:[] },
-  { id:11, cat:'LOMITOS', name:'Lomito árabe súper pollo',       price:20000, emoji:'🌯', img:'arabe de pollo.jpg',       ingredients:[] },
-  { id:12, cat:'LOMITOS', name:'Lomito árabe mixto cheddar',     price:20000, emoji:'🌯', img:'arabe con cheddar.jpg',    ingredients:[] },
-  { id:13, cat:'LOMITOS', name:'Lomito árabe de carne',          price:22000, emoji:'🌯', img:'arabe de carne.jpg',       ingredients:[] },
-  { id:14, cat:'LOMITOS', name:'Lomito árabe carne cheddar',     price:24000, emoji:'🌯', img:'arabe con cheddar.jpg',    ingredients:[] },
-  { id:15, cat:'LOMITOS', name:'Lomito árabe súper carne',       price:24000, emoji:'🌯', img:'arabe de carne.jpg',       ingredients:[] },
-  // PIZZAS
-  { id:16, cat:'PIZZAS', name:'Pepperoni',                       price:35000, emoji:'🍕', img:'pizza-pepperoni_web.jpg',  ingredients:[] },
-  { id:17, cat:'PIZZAS', name:'Jamón y queso',                   price:35000, emoji:'🍕', img:'pizza jamon y queso.jpeg', ingredients:[] },
-  { id:18, cat:'PIZZAS', name:'Catu pollo',                      price:35000, emoji:'🍕', img:'pizza catupollo.jpeg',     ingredients:[] },
-  { id:19, cat:'PIZZAS', name:'Catu choclo',                     price:35000, emoji:'🍕', img:'pizza de queso.jpg',       ingredients:[] },
-  // EXTRAS
-  { id:20, cat:'EXTRAS', name:'Papas fritas',                    price:10000, emoji:'🍟', img:'papas.jpeg',               ingredients:[] },
-  { id:21, cat:'EXTRAS', name:'Papas fritas cheddar',            price:15000, emoji:'🍟', img:'papas con cheddar.jpg',    ingredients:[] },
-  { id:22, cat:'EXTRAS', name:'Aderezo extra',                   price:1000,  emoji:'🥫',                                 ingredients:[] },
-  // CHAMBURREADOS
-  { id:23, cat:'CHAMBURREADOS', name:'Mixto',                    price:10000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:[] },
-  { id:24, cat:'CHAMBURREADOS', name:'Pollo',                    price:10000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:[] },
-  { id:25, cat:'CHAMBURREADOS', name:'Súper pollo',              price:12000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:[] },
-  { id:26, cat:'CHAMBURREADOS', name:'Carne',                    price:13000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:[] },
-  { id:27, cat:'CHAMBURREADOS', name:'Súper carne',              price:14000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:[] },
-  { id:28, cat:'CHAMBURREADOS', name:'Cheddar',                  price:15000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:[] },
+  // ───── HAMBURGUESAS ─────
+  { id:1,  cat:'HAMBURGUESAS', name:'Hamburguesa simple',         price:8000,  emoji:'🍔', img:'simple.png',               ingredients:['pan','carne','huevo','queso','tomate','condimentos'] },
+  { id:2,  cat:'HAMBURGUESAS', name:'Hamburguesa especial',       price:9000,  emoji:'🍔', img:'especial.jpg',             ingredients:['pan','carne','huevo','queso','tomate','cebolla','condimentos'] },
+  { id:3,  cat:'HAMBURGUESAS', name:'Hamburguesa con cheddar',    price:10000, emoji:'🍔', img:'con cheddar.png',          ingredients:['pan','carne','cheddar','huevo','tomate','cebolla','condimentos'] },
+  { id:4,  cat:'HAMBURGUESAS', name:'Hamburguesa doble carne',    price:12000, emoji:'🍔', img:'doble.jpg',                ingredients:['pan','doble carne','queso','huevo','tomate','condimentos'] },
+  { id:5,  cat:'HAMBURGUESAS', name:'Súper hamburguesa',          price:13000, emoji:'🍔', img:'super h.jpg',              ingredients:['pan','carne','jamon','queso','huevo','tomate','cebolla','condimentos'] },
+  { id:6,  cat:'HAMBURGUESAS', name:'Doble carne con cheddar',    price:14000, emoji:'🍔', img:'doble.jpg',                ingredients:['pan','doble carne','cheddar','huevo','tomate','condimentos'] },
+  { id:7,  cat:'HAMBURGUESAS', name:'Súper con cheddar',          price:15000, emoji:'🍔', img:'con cheddar.png',          ingredients:['pan','carne','jamon','cheddar','huevo','tomate','cebolla','condimentos'] },
+  { id:8,  cat:'HAMBURGUESAS', name:'Triple carne',               price:18000, emoji:'🍔', img:'triple.jpeg',              ingredients:['pan','triple carne','queso','huevo','tomate','condimentos'] },
+  // ───── LOMITOS ÁRABES ─────
+  { id:9,  cat:'LOMITOS ÁRABES', name:'Lomito árabe mixto',       price:18000, emoji:'🌯', img:'lomito arabe.jpeg',        ingredients:['pan arabe','carne','pollo','lechuga','tomate','cebolla','aderezo'] },
+  { id:10, cat:'LOMITOS ÁRABES', name:'Lomito árabe de pollo',    price:18000, emoji:'🌯', img:'arabe de pollo.jpg',       ingredients:['pan arabe','pollo','lechuga','tomate','cebolla','aderezo'] },
+  { id:11, cat:'LOMITOS ÁRABES', name:'Lomito árabe súper pollo', price:20000, emoji:'🌯', img:'arabe de pollo.jpg',       ingredients:['pan arabe','doble pollo','lechuga','tomate','cebolla','aderezo'] },
+  { id:12, cat:'LOMITOS ÁRABES', name:'Lomito árabe mixto cheddar',price:20000,emoji:'🌯', img:'arabe con cheddar.jpg',    ingredients:['pan arabe','carne','pollo','cheddar','lechuga','tomate','cebolla'] },
+  { id:13, cat:'LOMITOS ÁRABES', name:'Lomito árabe de carne',    price:22000, emoji:'🌯', img:'arabe de carne.jpg',       ingredients:['pan arabe','carne','lechuga','tomate','cebolla','aderezo'] },
+  { id:14, cat:'LOMITOS ÁRABES', name:'Lomito árabe carne cheddar',price:24000,emoji:'🌯', img:'arabe con cheddar.jpg',    ingredients:['pan arabe','carne','cheddar','lechuga','tomate','cebolla'] },
+  { id:15, cat:'LOMITOS ÁRABES', name:'Lomito árabe súper carne', price:24000, emoji:'🌯', img:'arabe de carne.jpg',       ingredients:['pan arabe','doble carne','lechuga','tomate','cebolla','aderezo'] },
+  // ───── SANDWICHES DE LOMITO ─────
+  { id:16, cat:'SANDWICHES DE LOMITO', name:'Lomito simple',      price:15000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','carne','lechuga','tomate','cebolla','aderezo'] },
+  { id:17, cat:'SANDWICHES DE LOMITO', name:'Lomito completo',    price:18000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','carne','jamon','queso','huevo','lechuga','tomate','cebolla','aderezo'] },
+  { id:18, cat:'SANDWICHES DE LOMITO', name:'Lomito con cheddar', price:20000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','carne','cheddar','lechuga','tomate','cebolla','aderezo'] },
+  { id:19, cat:'SANDWICHES DE LOMITO', name:'Lomito doble carne', price:22000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','doble carne','queso','lechuga','tomate','cebolla','aderezo'] },
+  { id:20, cat:'SANDWICHES DE LOMITO', name:'Lomito súper',       price:25000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','doble carne','jamon','queso','huevo','lechuga','tomate','cebolla','aderezo'] },
+  { id:21, cat:'SANDWICHES DE LOMITO', name:'Lomito súper cheddar',price:27000,emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','doble carne','cheddar','huevo','lechuga','tomate','cebolla','aderezo'] },
+  // ───── PIZZAS ─────
+  { id:22, cat:'PIZZAS', name:'Pepperoni',                        price:35000, emoji:'🍕', img:'pizza-pepperoni_web.jpg',  ingredients:['masa','salsa','queso','pepperoni'] },
+  { id:23, cat:'PIZZAS', name:'Jamón y queso',                    price:35000, emoji:'🍕', img:'pizza jamon y queso.jpeg', ingredients:['masa','salsa','queso','jamon'] },
+  { id:24, cat:'PIZZAS', name:'Catu pollo',                       price:35000, emoji:'🍕', img:'pizza catupollo.jpeg',     ingredients:['masa','salsa','queso','pollo','catupiry'] },
+  { id:25, cat:'PIZZAS', name:'Catu choclo',                      price:35000, emoji:'🍕', img:'pizza de queso.jpg',       ingredients:['masa','salsa','queso','choclo','catupiry'] },
+  // ───── CHAMBURREADOS ─────
+  { id:26, cat:'CHAMBURREADOS', name:'Mixto',                     price:10000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:['pan','jamon','queso','lechuga','tomate','aderezo'] },
+  { id:27, cat:'CHAMBURREADOS', name:'Pollo',                     price:10000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','pollo','lechuga','tomate','aderezo'] },
+  { id:28, cat:'CHAMBURREADOS', name:'Súper pollo',               price:12000, emoji:'🥪', img:'sandwich de lomito.jpeg',  ingredients:['pan','doble pollo','queso','lechuga','tomate','aderezo'] },
+  { id:29, cat:'CHAMBURREADOS', name:'Carne',                     price:13000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:['pan','carne','lechuga','tomate','aderezo'] },
+  { id:30, cat:'CHAMBURREADOS', name:'Súper carne',               price:14000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:['pan','doble carne','queso','lechuga','tomate','aderezo'] },
+  { id:31, cat:'CHAMBURREADOS', name:'Cheddar',                   price:15000, emoji:'🥪', img:'chamburreado mixto.jpeg',  ingredients:['pan','carne','cheddar','lechuga','tomate','aderezo'] },
+  // ───── EXTRAS ─────
+  { id:32, cat:'EXTRAS', name:'Papas fritas',                     price:10000, emoji:'🍟', img:'papas.jpeg',               ingredients:['papas','sal'] },
+  { id:33, cat:'EXTRAS', name:'Papas fritas cheddar',             price:15000, emoji:'🍟', img:'papas con cheddar.jpg',    ingredients:['papas','cheddar','sal'] },
+  { id:34, cat:'EXTRAS', name:'Aderezo extra',                    price:1000,  emoji:'🥫',                                 ingredients:[] },
 ];
 
 // Clases CSS de color por categoría (definidas en styles.css)
 const CATEGORY_COLORS = {
-  HAMBURGUESAS:  'cat-HAMBURGUESAS',
-  LOMITOS:       'cat-LOMITOS',
-  PIZZAS:        'cat-PIZZAS',
-  EXTRAS:        'cat-EXTRAS',
-  CHAMBURREADOS: 'cat-CHAMBURREADOS',
+  'HAMBURGUESAS':        'cat-HAMBURGUESAS',
+  'LOMITOS ÁRABES':      'cat-LOMITOS',
+  'SANDWICHES DE LOMITO':'cat-SANDWICHES',
+  'PIZZAS':              'cat-PIZZAS',
+  'CHAMBURREADOS':       'cat-CHAMBURREADOS',
+  'EXTRAS':              'cat-EXTRAS',
 };
 
 const WHATSAPP_NUMBER = '595971954958';
