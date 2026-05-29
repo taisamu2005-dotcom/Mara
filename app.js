@@ -22,12 +22,12 @@ const MENU = [
   { id:14, cat:'LOMITOS ÁRABES', name:'Lomito árabe carne cheddar',price:24000,emoji:'🌯', img:'arabe con cheddar.jpg',    base:['pan arabe','carne','cheddar'],ingredients:['repollo','tomate','cebolla'] },
   { id:15, cat:'LOMITOS ÁRABES', name:'Lomito árabe súper carne', price:24000, emoji:'🌯', img:'arabe de carne.jpg',       base:['pan arabe','doble carne'],  ingredients:['repollo','tomate','cebolla','aderezo'] },
   // ───── SANDWICHES DE LOMITO ─────
-  { id:16, cat:'SANDWICHES DE LOMITO', name:'Lomito simple',      price:15000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne'],              ingredients:['repollo','tomate','cebolla','aderezo'] },
-  { id:17, cat:'SANDWICHES DE LOMITO', name:'Lomito completo',    price:18000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne'],              ingredients:['jamon','queso','huevo','repollo','tomate','cebolla','aderezo'] },
-  { id:18, cat:'SANDWICHES DE LOMITO', name:'Lomito con cheddar', price:20000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne','cheddar'],    ingredients:['repollo','tomate','cebolla','aderezo'] },
-  { id:19, cat:'SANDWICHES DE LOMITO', name:'Lomito doble carne', price:22000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne'],        ingredients:['queso','repollo','tomate','cebolla','aderezo'] },
-  { id:20, cat:'SANDWICHES DE LOMITO', name:'Lomito súper',       price:25000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne'],        ingredients:['jamon','queso','huevo','repollo','tomate','cebolla','aderezo'] },
-  { id:21, cat:'SANDWICHES DE LOMITO', name:'Lomito súper cheddar',price:27000,emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne','cheddar'],ingredients:['huevo','repollo','tomate','cebolla','aderezo'] },
+  { id:16, cat:'SANDWICHES DE LOMITO', name:'Sandwich simple',      price:15000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne'],              ingredients:['repollo','tomate','cebolla','aderezo'] },
+  { id:17, cat:'SANDWICHES DE LOMITO', name:'Sandwich completo',    price:18000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne'],              ingredients:['jamon','queso','huevo','repollo','tomate','cebolla','aderezo'] },
+  { id:18, cat:'SANDWICHES DE LOMITO', name:'Sandwich con cheddar', price:20000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','carne','cheddar'],    ingredients:['repollo','tomate','cebolla','aderezo'] },
+  { id:19, cat:'SANDWICHES DE LOMITO', name:'Sandwich doble carne', price:22000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne'],        ingredients:['queso','repollo','tomate','cebolla','aderezo'] },
+  { id:20, cat:'SANDWICHES DE LOMITO', name:'Sandwich súper',       price:25000, emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne'],        ingredients:['jamon','queso','huevo','repollo','tomate','cebolla','aderezo'] },
+  { id:21, cat:'SANDWICHES DE LOMITO', name:'Sandwich súper cheddar',price:27000,emoji:'🥪', img:'sandwich de lomito.jpeg',  base:['pan','doble carne','cheddar'],ingredients:['huevo','repollo','tomate','cebolla','aderezo'] },
   // ───── PIZZAS ─────
   { id:22, cat:'PIZZAS', name:'Pepperoni',                        price:35000, emoji:'🍕', img:'pizza-pepperoni_web.jpg',  base:['masa','salsa','queso'],     ingredients:['pepperoni'] },
   { id:23, cat:'PIZZAS', name:'Jamón y queso',                    price:35000, emoji:'🍕', img:'pizza jamon y queso.jpeg', base:['masa','salsa','queso'],     ingredients:['jamon'] },
